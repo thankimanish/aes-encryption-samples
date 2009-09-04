@@ -1,8 +1,13 @@
 #summary Set of cross-compatible AES encryption samples for different platforms
+
 = Introduction =
-Add your content here.
+
+Samples to demonstrate how to use AES encryption with standard libraries on several platforms - keeping encrypted content cross-platform compatible.
+
 = Details =
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+
+Intended to support:
+  * *Java* 
+  * *C#*
+  * *PHP*
+  * *ColdFusion*
