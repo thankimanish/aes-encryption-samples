@@ -9,5 +9,5 @@ Samples to demonstrate how to use AES encryption with standard libraries on seve
 Intended to support:
   * *Java* 
   * *C#*
-  * *PHP*
-  * *ColdFusion*
+  * *[PHP]*
+  * *!ColdFusion*
