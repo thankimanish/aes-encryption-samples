@@ -8,7 +8,7 @@ Following article on wikipedia covers the block cipher modes - explaining the pr
 
 = Details =
 
-The following quote from a Adobe's tech note about *"Strong encryption in !ColdFusion MX 7"* (http://kb2.adobe.com/cps/546/e546373d.html) explains well the when ECB should be chosen: 
+The following quote from a Adobe's tech note about *"Strong encryption in !ColdFusion MX 7"* (http://kb2.adobe.com/cps/546/e546373d.html) explains well when ECB should be chosen: 
 
 ||_*ECB: Electronic Code Book*. This is the default mode that does not use any feedback to encrypt the data. This mode encrypts whole blocks, so a padding method like PKCS5Padding must also be used. ECB is fine for encrypting short strings of data, or for strings that do not contain any predictable or repeating groups of characters._||
 
