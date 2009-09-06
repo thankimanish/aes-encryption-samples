@@ -1,0 +1,11 @@
+#summary Which cipher mode to choose?
+
+= Introduction =
+
+Standard implementations of the AES cipher on different platforms may use different default mode (Cipher Mode). Depending on a practical application, the default cipher mode can be a wrong choice.
+
+Following article in wikipedia covers the block cipher modes - explaining the problem and illustrating it with a good real life example: [http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation Block Cipher Modes of Operation]
+
+= Details =
+
+The issue can be
