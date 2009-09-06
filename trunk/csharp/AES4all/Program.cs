@@ -7,7 +7,7 @@ namespace AES4all
 {
     class Program
     {
-	    public static RijndaelManaged getAESCBCCipher(byte[] keyBytes, byte[] IVBytes, PaddingMode padding) {
+        public static RijndaelManaged getAESCBCCipher(byte[] keyBytes, byte[] IVBytes, PaddingMode padding) {
             RijndaelManaged cipher =  new RijndaelManaged();
             cipher.KeySize = 128;
             cipher.BlockSize = 128;
@@ -15,8 +15,8 @@ namespace AES4all
             cipher.Padding = padding;
             cipher.IV = IVBytes;
             cipher.Key = keyBytes;
-		    return cipher;
-	    }
+            return cipher;
+        }
 
         public static RijndaelManaged getAESECBCipher(byte[] keyBytes, PaddingMode padding)
         {
@@ -58,15 +58,15 @@ namespace AES4all
             return fromEncrypt;
         }
 
-	    public static byte[] demo1encrypt(byte[] keyBytes, byte[] ivBytes, PaddingMode padding, byte[] messageBytes){
-	        RijndaelManaged cipher = getAESCBCCipher(keyBytes, ivBytes, padding); 
-	        return encrypt(cipher, messageBytes);
-	    }
+        public static byte[] demo1encrypt(byte[] keyBytes, byte[] ivBytes, PaddingMode padding, byte[] messageBytes){
+            RijndaelManaged cipher = getAESCBCCipher(keyBytes, ivBytes, padding); 
+            return encrypt(cipher, messageBytes);
+        }
 
-	    public static byte[] demo1decrypt(byte[] keyBytes, byte[] ivBytes, PaddingMode padding, byte[] encryptedMessageBytes){
-	        RijndaelManaged decipher = getAESCBCCipher(keyBytes, ivBytes, padding); 
-	        return decrypt(decipher, encryptedMessageBytes);
-	    }
+        public static byte[] demo1decrypt(byte[] keyBytes, byte[] ivBytes, PaddingMode padding, byte[] encryptedMessageBytes){
+            RijndaelManaged decipher = getAESCBCCipher(keyBytes, ivBytes, padding); 
+            return decrypt(decipher, encryptedMessageBytes);
+        }
 
         public static byte[] demo2encrypt(byte[] keyBytes, PaddingMode padding, byte[] messageBytes)
         {
@@ -84,30 +84,30 @@ namespace AES4all
         {
             ASCIIEncoding textConverter = new ASCIIEncoding();
 
-		    String sDemoMesage = "This is a demo message from C#!";
-		    byte[] demoMesageBytes = textConverter.GetBytes(sDemoMesage);
-		    //shared secret
-	        byte[] demoKeyBytes = new byte[] {  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-				    0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
-	        // Initialization Vector - usually a random data, stored along with the shared secret,
-	        // or transmitted along with a message.
-	        // Not all the ciphers require IV - we use IV in this particular sample
-	        byte[] demoIVBytes = new byte[] { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-										    0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
+            String sDemoMesage = "This is a demo message from C#!";
+            byte[] demoMesageBytes = textConverter.GetBytes(sDemoMesage);
+            //shared secret
+            byte[] demoKeyBytes = new byte[] {  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                    0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
+            // Initialization Vector - usually a random data, stored along with the shared secret,
+            // or transmitted along with a message.
+            // Not all the ciphers require IV - we use IV in this particular sample
+            byte[] demoIVBytes = new byte[] { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                                            0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
 
-	        PaddingMode padding = PaddingMode.ISO10126;
+            PaddingMode padding = PaddingMode.ISO10126;
             /**/
-	        Console.WriteLine("Demo Key (base64): "+ System.Convert.ToBase64String(demoKeyBytes));
-	        Console.WriteLine("Demo IV  (base64): "+ System.Convert.ToBase64String(demoIVBytes));
-    	    
-	        byte[] demo1EncryptedBytes = demo1encrypt(demoKeyBytes, demoIVBytes, padding, demoMesageBytes);
-		    Console.WriteLine("Demo1 encrypted (base64): "+ System.Convert.ToBase64String(demo1EncryptedBytes));
-		    byte[] demo1DecryptedBytes = demo1decrypt(demoKeyBytes, demoIVBytes, padding, demo1EncryptedBytes);
-		    Console.WriteLine("Demo1 decrypted message : "+ textConverter.GetString(demo1DecryptedBytes));
+            Console.WriteLine("Demo Key (base64): "+ System.Convert.ToBase64String(demoKeyBytes));
+            Console.WriteLine("Demo IV  (base64): "+ System.Convert.ToBase64String(demoIVBytes));
+            
+            byte[] demo1EncryptedBytes = demo1encrypt(demoKeyBytes, demoIVBytes, padding, demoMesageBytes);
+            Console.WriteLine("Demo1 encrypted (base64): "+ System.Convert.ToBase64String(demo1EncryptedBytes));
+            byte[] demo1DecryptedBytes = demo1decrypt(demoKeyBytes, demoIVBytes, padding, demo1EncryptedBytes);
+            Console.WriteLine("Demo1 decrypted message : "+ textConverter.GetString(demo1DecryptedBytes));
 
-		    byte[] demo2EncryptedBytes = demo2encrypt(demoKeyBytes, padding, demoMesageBytes);
-		    Console.WriteLine("Demo2 encrypted (base64): "+ System.Convert.ToBase64String(demo2EncryptedBytes));
-		    byte[] demo2DecryptedBytes = demo2decrypt(demoKeyBytes, padding, demo2EncryptedBytes);
+            byte[] demo2EncryptedBytes = demo2encrypt(demoKeyBytes, padding, demoMesageBytes);
+            Console.WriteLine("Demo2 encrypted (base64): "+ System.Convert.ToBase64String(demo2EncryptedBytes));
+            byte[] demo2DecryptedBytes = demo2decrypt(demoKeyBytes, padding, demo2EncryptedBytes);
             Console.WriteLine("Demo2 decrypted message : " + textConverter.GetString(demo2DecryptedBytes));
             Console.ReadLine();
         }
