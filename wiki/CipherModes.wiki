@@ -14,4 +14,4 @@ The following quote from a Adobe's tech note about *"Strong encryption in !ColdF
 
 = Code Samples =
 
-In both supplied samples (for Java and for C#) use of the ECB mode is illustrated in *demo2encrypt* and *demo2decrypt* functions. And, so those functions are compatible with default parameters of *!Decrypt* and *!Encrypt* methods of !ColdFusion.
+In both supplied samples (for Java and for C#) use of the ECB mode is illustrated in *demo2encrypt* and *demo2decrypt* functions. And, so those functions are compatible with default parameters of *Decrypt* and *Encrypt* methods of !ColdFusion.
