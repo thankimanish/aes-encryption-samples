@@ -1,6 +1,9 @@
 #summary One-sentence summary of this page.
 #labels Featured,Phase-Implementation
 
+=== The Source ===
+The source code snippets you can find on this page are cut-and-pastes from the Java source code that can be downloaded from the Source repository or from the Downloads section. 
+=== The Walkthrough === 
 First, you have to import following namespaces: 
 
 {{{
