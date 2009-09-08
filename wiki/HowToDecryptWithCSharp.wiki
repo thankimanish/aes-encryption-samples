@@ -1,6 +1,8 @@
 #summary One-sentence summary of this page.
 #labels Featured,Phase-Implementation
 
+First, you have to import following namespaces: 
+
 {{{
 using System;
 using System.IO;
@@ -8,52 +10,48 @@ using System.Text;
 using System.Security.Cryptography;
 }}}
 
+We assume our module has received encrypted data defined as following:
 {{{
-        public static RijndaelManaged getAESECBCipher(byte[] keyBytes, PaddingMode padding)
-        {
-            RijndaelManaged cipher = new RijndaelManaged();
-            cipher.KeySize = 128;
-            cipher.BlockSize = 128;
-            cipher.Mode = CipherMode.ECB;
-            cipher.Padding = padding;
-            cipher.Key = keyBytes;
-            return cipher;
-        }
+byte[] demo2EncryptedBytes;
+}}}
 
-        public static byte[] decrypt(RijndaelManaged cipher, byte[] encrypted){
-            //Get an encryptor.
-            ICryptoTransform decryptor = cipher.CreateDecryptor();
-            //Now decrypt the previously encrypted message using the decryptor
-            // obtained in the above step.
-            MemoryStream msDecrypt = new MemoryStream(encrypted);
-            CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
-            byte[] fromEncrypt = new byte[encrypted.Length];
-            //Read the data out of the crypto stream.
-            //csDecrypt.Read(fromEncrypt, 0, fromEncrypt.Length);
-            csDecrypt.Read(fromEncrypt, 0, fromEncrypt.Length);
-            return fromEncrypt;
-        }
+The decryption is done by the following code:
 
+{{{
+byte[] demoKeyBytes = new byte[] {  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                                    0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
+PaddingMode padding = PaddingMode.ISO10126;
+byte[] demo2DecryptedBytes = demo2decrypt(demoKeyBytes, padding, demo2EncryptedBytes);
+}}}
+
+
+{{{
+public static RijndaelManaged getAESECBCipher(byte[] keyBytes, PaddingMode padding)
+{
+    RijndaelManaged cipher = new RijndaelManaged();
+    cipher.KeySize = 128;
+    cipher.BlockSize = 128;
+    cipher.Mode = CipherMode.ECB;
+    cipher.Padding = padding;
+    cipher.Key = keyBytes;
+    return cipher;
+}
+
+public static byte[] decrypt(RijndaelManaged cipher, byte[] encrypted)
+{
+    ICryptoTransform decryptor = cipher.CreateDecryptor();
+    MemoryStream msDecrypt = new MemoryStream(encrypted);
+    CryptoStream csDecrypt = new CryptoStream(msDecrypt, decryptor, CryptoStreamMode.Read);
+    byte[] fromEncrypt = new byte[encrypted.Length];
+    csDecrypt.Read(fromEncrypt, 0, fromEncrypt.Length);
+    return fromEncrypt;
+}
 }}}
 
 {{{
-        public static byte[] demo2decrypt(byte[] keyBytes, PaddingMode padding, byte[] encryptedMessageBytes)
-        {
-            RijndaelManaged decipher = getAESECBCipher(keyBytes, padding);
-            return decrypt(decipher, encryptedMessageBytes);
-        }
-}}}
-
-{{{
-            ASCIIEncoding textConverter = new ASCIIEncoding();
-
-            String sDemoMesage = "This is a demo message from C#!";
-            byte[] demoMesageBytes = textConverter.GetBytes(sDemoMesage);
-            //shared secret
-            byte[] demoKeyBytes = new byte[] {  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
-                    0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
-
-            PaddingMode padding = PaddingMode.ISO10126;
-            /**/
-            byte[] demo2DecryptedBytes = demo2decrypt(demoKeyBytes, padding, demo2EncryptedBytes);
+public static byte[] demo2decrypt(byte[] keyBytes, PaddingMode padding, byte[] encryptedMessageBytes)
+{
+    RijndaelManaged decipher = getAESECBCipher(keyBytes, padding);
+    return decrypt(decipher, encryptedMessageBytes);
+}
 }}}
