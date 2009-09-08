@@ -58,3 +58,9 @@ public static byte[] encrypt(Cipher cipher, byte[] dataBytes) throws Exception{
     return bOut.toByteArray();
 } 
 }}}
+
+=== How To Decrypt? ===
+
+Now that would be a good time to read HowToDecryptWithJava or HowToDecryptWithCSharp...
+
+Unfortunately, the articles are not written yet - give me few more days, please.
