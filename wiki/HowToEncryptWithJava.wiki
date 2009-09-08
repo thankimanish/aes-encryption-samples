@@ -62,6 +62,6 @@ public static byte[] encrypt(Cipher cipher, byte[] dataBytes) throws Exception{
 
 === How To Decrypt? ===
 
-Now that would be a good time to read HowToDecryptWithJava or [HowToDecryptWithCSharp] ...
+Now that would be a good time to read HowToDecryptWithJava or [HowToDecryptWithCSharp How To Decrypt With C#] ...
 
 Unfortunately, the articles are not written yet - give me few more days, please.
