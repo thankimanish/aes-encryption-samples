@@ -1,13 +1,9 @@
 #summary Set of cross-compatible AES encryption samples for different platforms
 
-= Introduction =
+== Introduction ==
 
-Samples to demonstrate how to use AES encryption with standard libraries on several platforms - keeping encrypted content cross-platform compatible.
+The intent of this project is to help those who'd like to learn how to to encrypt data using standard libraries on different platforms (Java, C#/.Net, PHP, !ColdFusion). Of course, it should be always possible to decrypt data on any supported platform, regardless on which platform the data is encrypted.  
 
-= Details =
+== Why AES? ==
 
-Intended to support:
-  * *Java* 
-  * *C#*
-  * *PHP*
-  * *!ColdFusion*
+
