@@ -13,7 +13,7 @@ First you need to choose which feedback mode you are going to use in your applic
 
 === The Padding ===
 
-I have found that ISO 10126 padding is available on all the popular platforms - so, we stick to it here.
+We will agree on a padding method, and the good one can be the ISO 10126 padding, which is available on all the popular platforms - so, we stick to it here.
 
 === How to Encrypt ===
 
