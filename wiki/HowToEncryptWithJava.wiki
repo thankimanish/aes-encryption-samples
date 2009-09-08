@@ -36,3 +36,14 @@ public static byte[] demo2encrypt(byte[] keyBytes, String sPadding, byte[] messa
     return encrypt(cipher, messageBytes);
 }
 }}}
+
+The following methods are just fine to be borrowed, unless you'd like to implement your own exception/error handling:
+
+{{{
+public static Cipher getAESECBEncryptor(byte[] keyBytes, String padding) throws Exception{
+    SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
+    Cipher cipher = Cipher.getInstance("AES/ECB/"+padding);
+    cipher.init(Cipher.ENCRYPT_MODE, key);
+    return cipher;
+}
+}}}
