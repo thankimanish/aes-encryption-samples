@@ -12,4 +12,16 @@ First you need to choose which feedback mode you are going to use in your applic
 
 === The Padding ===
 
-I have found that ISO 1026 padding is available on all the popular platforms - so, we stick to it.
+I have found that ISO 10126 padding is available on all the popular platforms - so, we stick to it.
+
+=== How to Encrypt ===
+
+{{{
+    String sDemoMesage = "This is a demo message from Java!";
+    byte[] demoMesageBytes = sDemoMesage.getBytes();
+    //shared secret
+    byte[] demoIVBytes = new byte[] { 0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
+                                        0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f};
+    String sPadding = "ISO10126Padding";
+    byte[] demo2EncryptedBytes = demo2encrypt(demoKeyBytes, sPadding, demoMesageBytes);
+}}}
