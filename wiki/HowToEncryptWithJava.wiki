@@ -37,7 +37,7 @@ public static byte[] demo2encrypt(byte[] keyBytes, String sPadding, byte[] messa
 }
 }}}
 
-The following methods are just fine to be borrowed, unless you'd like to implement your own exception/error handling:
+The following methods are just fine to be borrowed, unless you'd like to implement your own exception/error handling and improve performance (if it is critical):
 
 {{{
 public static Cipher getAESECBEncryptor(byte[] keyBytes, String padding) throws Exception{
@@ -46,4 +46,15 @@ public static Cipher getAESECBEncryptor(byte[] keyBytes, String padding) throws 
     cipher.init(Cipher.ENCRYPT_MODE, key);
     return cipher;
 }
+
+public static byte[] encrypt(Cipher cipher, byte[] dataBytes) throws Exception{
+    ByteArrayInputStream bIn = new ByteArrayInputStream(dataBytes);
+    CipherInputStream cIn = new CipherInputStream(bIn, cipher);
+    ByteArrayOutputStream bOut = new ByteArrayOutputStream();
+    int ch;
+    while ((ch = cIn.read()) >= 0) {
+        bOut.write(ch);
+    }
+    return bOut.toByteArray();
+} 
 }}}
