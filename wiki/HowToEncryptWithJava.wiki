@@ -27,3 +27,12 @@ I have found that ISO 10126 padding is available on all the popular platforms - 
 }}}
 
 *Pay attention:* The shared secret is an array of 16 random bytes - that corresponds to 128 bit key size supported by default by all the platforms. (this is compliant to US government requirement for transition of unclassified data) 
+
+=== demo2encrypt ===
+This would be the method you will call differently in your implementation, but, essentially, it will do the same to things - the cipher instantiation and actual encryption
+{{{
+public static byte[] demo2encrypt(byte[] keyBytes, String sPadding, byte[] messageBytes) throws Exception {
+    Cipher cipher = getAESECBEncryptor(keyBytes, sPadding); 
+    return encrypt(cipher, messageBytes);
+}
+}}}
