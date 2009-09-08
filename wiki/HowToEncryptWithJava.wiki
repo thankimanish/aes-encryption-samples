@@ -43,9 +43,8 @@ public static byte[] demo2encrypt(byte[] keyBytes, String sPadding, byte[] messa
     return encrypt(cipher, messageBytes);
 }
 }}}
-
+=== _getAESECBEncryptor_ and _encrypt_ methods ===
 The following methods are just fine to be borrowed, unless you'd like to implement your own exception/error handling and improve performance (if the last one is critical):
-
 {{{
 public static Cipher getAESECBEncryptor(byte[] keyBytes, String padding) throws Exception{
     SecretKeySpec key = new SecretKeySpec(keyBytes, "AES");
