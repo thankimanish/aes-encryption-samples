@@ -15,7 +15,7 @@ We assume our module has received encrypted data defined as following:
 byte[] demo2EncryptedBytes;
 }}}
 
-The decryption is done by the following code:
+The decryption is done by the following code. Look at the [HowToEncryptWithJava How To Encrypt With Java] page - we have have to agree on the shared secret and the padding method; also, we use block size 128 bit (16 bytes):
 
 {{{
 byte[] demoKeyBytes = new byte[] {  0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07,
