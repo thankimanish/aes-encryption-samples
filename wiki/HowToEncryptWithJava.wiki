@@ -6,7 +6,13 @@
 The source code snippets you can find on this page are cut-and-pastes from the Java source code that can be downloaded from the Source repository or from the Downloads section.
 
 == The Walk Through ==
-
+=== Import the Standard Libraries ===
+All we need is three import statements:
+{{{
+import javax.crypto.*;
+import javax.crypto.spec.*;
+import java.io.*;
+}}}
 === The [CipherModes CipherMode] (or Feedback mode) ===
 
 First you need to choose which feedback mode you are going to use in your application. If the data is short messages with irregular structure, then ECB is probably the best choice, because you do not need an initialization vector (another piece of information that has to be known to both sides - the encrypting and the decrypting ones). In this walk through we use ECB.  
