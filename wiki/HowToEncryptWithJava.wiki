@@ -1,4 +1,4 @@
-#summary The Java source code - analysis
+#summary Java source code - analysis
 #labels Phase-Implementation,Featured
 
 == The source ==
